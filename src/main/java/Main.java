@@ -15,10 +15,14 @@ public class Main {
     WorkerD wd = new WorkerD(semaphore);
     Thread td = new Thread(wd);
 
-    wa.addToAllowedNumbers();
     for (Integer i : wa.getAllowedNumbers()) {
       System.out.println(i);
     }
+
+    for (Integer i : wc.getAllowedNumbers()) {
+      System.out.println(i);
+    }
+
   }
 
 }

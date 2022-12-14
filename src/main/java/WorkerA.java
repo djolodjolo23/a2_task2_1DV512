@@ -11,6 +11,7 @@ public class WorkerA implements Runnable {
   public WorkerA(Semaphore semaphore) {
     allowedNumbers = new ArrayList<>();
     this.semaphore = semaphore;
+    addToAllowedNumbers();
   }
 
   @Override
