@@ -1,17 +1,17 @@
 
 public class AppendedString {
 
-  static String finalString = "";
+  public String finalString = "";
 
-  static void addToString(String letter) {
+  public void addToString(String letter) {
     finalString =  finalString + letter;
   }
 
-  static String getFinalString() {
+  public String getFinalString() {
     return finalString;
   }
 
-  static int getCurrentStringSize() {
+  public int getCurrentStringSize() {
     return finalString.length();
   }
 

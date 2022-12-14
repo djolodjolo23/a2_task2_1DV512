@@ -7,8 +7,11 @@ public class WorkerA implements Runnable {
 
   ArrayList<Integer> allowedNumbers;
 
+  private AppendedString appendedString;
 
-  public WorkerA(Semaphore semaphore) {
+
+  public WorkerA(Semaphore semaphore, AppendedString appendedString) {
+    this.appendedString = appendedString;
     allowedNumbers = new ArrayList<>();
     this.semaphore = semaphore;
     addToAllowedNumbers();
@@ -16,19 +19,31 @@ public class WorkerA implements Runnable {
 
   @Override
   public void run() {
-
     synchronized (semaphore) {
       semaphore.release();
-      for (int i = 0; i < 10; i++) {
+      while (Counter.aCounter < 10){
+        try {
+          isItMyTurnTest(semaphore);
+        } catch (InterruptedException e) {
+          throw new RuntimeException(e);
+        }
         try {
           semaphore.acquire();
         } catch (InterruptedException e) {
           throw new RuntimeException(e);
         }
-        AppendedString.addToString("A");
+        appendedString.addToString("A");
         Counter.aCounter++;
         semaphore.release();
-        semaphore.notify();
+        semaphore.notifyAll();
+        if (Counter.aCounter == 10) {
+          break;
+        }
+        try {
+          semaphore.wait();
+        } catch (InterruptedException e) {
+          throw new RuntimeException(e);
+        }
       }
     }
   }
@@ -44,5 +59,17 @@ public class WorkerA implements Runnable {
 
   public ArrayList<Integer> getAllowedNumbers() {
     return allowedNumbers;
+  }
+
+  private void isItMyTurnTest(Semaphore semaphore) throws InterruptedException {
+    if (!allowedNumbers.contains(appendedString.getCurrentStringSize())) {
+      semaphore.wait();
+      //semaphore.notifyAll();
+      isItMyTurnTest(semaphore);
+    }
+  }
+
+  private boolean isItMyTurn() {
+    return allowedNumbers.contains(appendedString.getCurrentStringSize());
   }
 }

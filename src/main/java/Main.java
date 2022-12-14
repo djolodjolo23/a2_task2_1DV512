@@ -5,23 +5,28 @@ public class Main {
   public static void main(String[] args) throws InterruptedException {
 
     Semaphore semaphore = new Semaphore(0);
+    AppendedString appendedString = new AppendedString();
 
-    WorkerA wa = new WorkerA(semaphore);
+    WorkerA wa = new WorkerA(semaphore, appendedString);
     Thread ta = new Thread(wa);
-    WorkerB wb = new WorkerB(semaphore);
+    WorkerB wb = new WorkerB(semaphore, appendedString);
     Thread tb = new Thread(wb);
-    WorkerC wc = new WorkerC(semaphore);
+    WorkerC wc = new WorkerC(semaphore, appendedString);
     Thread tc = new Thread(wc);
-    WorkerD wd = new WorkerD(semaphore);
+    WorkerD wd = new WorkerD(semaphore, appendedString);
     Thread td = new Thread(wd);
 
-    for (Integer i : wa.getAllowedNumbers()) {
-      System.out.println(i);
-    }
 
-    for (Integer i : wc.getAllowedNumbers()) {
-      System.out.println(i);
-    }
+    ta.start();
+    tb.start();
+    tc.start();
+    td.start();
+
+    ta.join();
+    tb.join();
+    tc.join();
+    td.join();
+
 
   }
 
