@@ -27,7 +27,7 @@ public class Main {
     tc.join();
     td.join();
 
-
+    System.out.println(appendedString.getFinalString());
   }
 
 }

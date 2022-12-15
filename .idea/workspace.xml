@@ -4,7 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="77f2aaba-ffa9-4a93-89cb-3075407ec625" name="Changes" comment="Added an array list with allowed string length for all workers.">
+    <list default="true" id="77f2aaba-ffa9-4a93-89cb-3075407ec625" name="Changes" comment="Made a lot of progress with threads, was able to print out the output twice, but then it crashes.">
+      <change afterPath="$PROJECT_DIR$/src/main/java/SuperClass.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/gradle.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/gradle.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/AppendedString.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/AppendedString.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Main.java" afterDir="false" />
@@ -44,18 +46,18 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "WebServerToolWindowFactoryState": "false",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "project.structure.last.edited": "Modules",
-    "project.structure.proportion": "0.15",
-    "project.structure.side.proportion": "0.2"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;Modules&quot;,
+    &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
+    &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;
   }
-}]]></component>
+}</component>
   <component name="RunManager">
     <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="Main" />
@@ -78,7 +80,8 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1671021902498</updated>
-      <workItem from="1671021903912" duration="12291000" />
+      <workItem from="1671021903912" duration="13217000" />
+      <workItem from="1671094637715" duration="8938000" />
     </task>
     <task id="LOCAL-00001" summary="Added an array list with allowed string length.">
       <created>1671026022712</created>
@@ -94,7 +97,14 @@
       <option name="project" value="LOCAL" />
       <updated>1671026308349</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="Made a lot of progress with threads, was able to print out the output twice, but then it crashes.">
+      <created>1671036514729</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1671036514729</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -114,20 +124,31 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Added an array list with allowed string length." />
     <MESSAGE value="Added an array list with allowed string length for all workers." />
-    <option name="LAST_COMMIT_MESSAGE" value="Added an array list with allowed string length for all workers." />
+    <MESSAGE value="Made a lot of progress with threads, was able to print out the output twice, but then it crashes." />
+    <option name="LAST_COMMIT_MESSAGE" value="Made a lot of progress with threads, was able to print out the output twice, but then it crashes." />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
       <breakpoints>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/WorkerD.java</url>
-          <line>32</line>
-          <option name="timeStamp" value="54" />
+          <url>file://$PROJECT_DIR$/src/main/java/WorkerA.java</url>
+          <line>39</line>
+          <option name="timeStamp" value="98" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/WorkerB.java</url>
+          <line>36</line>
+          <option name="timeStamp" value="99" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/main/java/WorkerC.java</url>
-          <line>33</line>
-          <option name="timeStamp" value="55" />
+          <line>38</line>
+          <option name="timeStamp" value="100" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/WorkerD.java</url>
+          <line>37</line>
+          <option name="timeStamp" value="102" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

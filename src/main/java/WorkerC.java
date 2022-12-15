@@ -1,7 +1,7 @@
 import java.util.ArrayList;
 import java.util.concurrent.Semaphore;
 
-public class WorkerC implements Runnable{
+public class WorkerC extends SuperClass implements Runnable{
 
   final Semaphore semaphore;
 
@@ -20,11 +20,16 @@ public class WorkerC implements Runnable{
   @Override
   public void run() {
     synchronized (semaphore) {
-      while (Counter.cCounter < 10) {
-        try {
-          isItMyTurnTest(semaphore);
-        } catch (InterruptedException e) {
-          throw new RuntimeException(e);
+      while (appendedString.getSize() < 30) {
+        if (appendedString.getSize() == 30) {
+          break;
+        }
+        while (!isItMyTurn()) {
+          try {
+            semaphore.wait();
+          } catch (InterruptedException e) {
+            throw new RuntimeException(e);
+          }
         }
         try {
           semaphore.acquire();
@@ -32,16 +37,18 @@ public class WorkerC implements Runnable{
           throw new RuntimeException(e);
         }
         appendedString.addToString("C");
-        Counter.cCounter++;
         semaphore.release();
         semaphore.notifyAll();
-        if (Counter.cCounter == 10) {
+        if (appendedString.getSize() == 30) {
           break;
         }
         try {
           semaphore.wait();
         } catch (InterruptedException e) {
           throw new RuntimeException(e);
+        }
+        if (appendedString.getSize() == 30) {
+          break;
         }
       }
     }

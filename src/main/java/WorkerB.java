@@ -1,7 +1,7 @@
 import java.util.ArrayList;
 import java.util.concurrent.Semaphore;
 
-public class WorkerB implements Runnable{
+public class WorkerB extends SuperClass implements Runnable{
 
   final Semaphore semaphore;
 
@@ -18,11 +18,16 @@ public class WorkerB implements Runnable{
   @Override
   public void run() {
     synchronized (semaphore) {
-      while (Counter.bCounter < 5) {
-        try {
-          isItMyTurnTest(semaphore);
-        } catch (InterruptedException e) {
-          throw new RuntimeException(e);
+      while (appendedString.getSize() < 30) {
+        if (appendedString.getSize() == 26) {
+          break;
+        }
+        while (!isItMyTurn()) {
+          try {
+            semaphore.wait();
+          } catch (InterruptedException e) {
+            throw new RuntimeException(e);
+          }
         }
         try {
           semaphore.acquire();
@@ -30,10 +35,9 @@ public class WorkerB implements Runnable{
           throw new RuntimeException(e);
         }
         appendedString.addToString("B");
-        Counter.bCounter++;
         semaphore.release();
         semaphore.notifyAll();
-        if (Counter.bCounter == 5) {
+        if (appendedString.getSize() == 26) {
           break;
         }
         try {
@@ -41,17 +45,18 @@ public class WorkerB implements Runnable{
         } catch (InterruptedException e) {
           throw new RuntimeException(e);
         }
+        if (appendedString.getSize() == 26) {
+          break;
+        }
       }
     }
 
   }
 
   public void addToAllowedNumbers() {
-    for (int i = 0; i < 100; i++) {
+    for (int i = 1; i < 100; i++) {
       allowedNumbers.add(i);
-      if (allowedNumbers.size() % 2 == 0) {
-        i = i + 5;
-      }
+      i += 5;
     }
   }
 

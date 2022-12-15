@@ -1,7 +1,7 @@
 import java.util.ArrayList;
 import java.util.concurrent.Semaphore;
 
-public class WorkerA implements Runnable {
+public class WorkerA extends SuperClass implements Runnable {
 
   final Semaphore semaphore;
 
@@ -21,11 +21,16 @@ public class WorkerA implements Runnable {
   public void run() {
     synchronized (semaphore) {
       semaphore.release();
-      while (Counter.aCounter < 10){
-        try {
-          isItMyTurnTest(semaphore);
-        } catch (InterruptedException e) {
-          throw new RuntimeException(e);
+      while (appendedString.getSize() < 30){
+        if (appendedString.getSize() == 27) {
+          break;
+        }
+        while (!isItMyTurn()) {
+          try {
+            semaphore.wait();
+          } catch (InterruptedException e) {
+            throw new RuntimeException(e);
+          }
         }
         try {
           semaphore.acquire();
@@ -33,16 +38,18 @@ public class WorkerA implements Runnable {
           throw new RuntimeException(e);
         }
         appendedString.addToString("A");
-        Counter.aCounter++;
         semaphore.release();
         semaphore.notifyAll();
-        if (Counter.aCounter == 10) {
+        if (appendedString.getSize() == 27) {
           break;
         }
         try {
           semaphore.wait();
         } catch (InterruptedException e) {
           throw new RuntimeException(e);
+        }
+        if (appendedString.getSize() == 27) {
+          break;
         }
       }
     }
@@ -57,6 +64,7 @@ public class WorkerA implements Runnable {
     }
   }
 
+
   public ArrayList<Integer> getAllowedNumbers() {
     return allowedNumbers;
   }
@@ -70,6 +78,9 @@ public class WorkerA implements Runnable {
   }
 
   private boolean isItMyTurn() {
-    return allowedNumbers.contains(appendedString.getCurrentStringSize());
+    if (allowedNumbers.contains(appendedString.getSize())) {
+      return true;
+    }
+    return false;
   }
 }
