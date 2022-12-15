@@ -4,7 +4,7 @@ public class Main {
 
   public static void main(String[] args) throws InterruptedException {
 
-    Semaphore semaphore = new Semaphore(0);
+    Semaphore semaphore = new Semaphore(0, true);
     AppendedString appendedString = new AppendedString();
 
     WorkerA wa = new WorkerA(semaphore, appendedString);

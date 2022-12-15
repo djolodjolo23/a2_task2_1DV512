@@ -18,12 +18,6 @@ public class AppendedString {
     return size;
   }
 
-  public boolean checkIfSizeIsReached() {
-    if (size == 30) {
-      return true;
-    }
-    return false;
-  }
 
   public int getCurrentStringSize() {
     return finalString.length();

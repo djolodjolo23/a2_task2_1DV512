@@ -9,6 +9,8 @@ public class WorkerA extends SuperClass implements Runnable {
 
   private AppendedString appendedString;
 
+  private final String workerType = "A";
+
 
   public WorkerA(Semaphore semaphore, AppendedString appendedString) {
     this.appendedString = appendedString;
@@ -21,25 +23,8 @@ public class WorkerA extends SuperClass implements Runnable {
   public void run() {
     synchronized (semaphore) {
       semaphore.release();
-      while (appendedString.getSize() < 30){
-        if (appendedString.getSize() == 27) {
-          break;
-        }
-        while (!isItMyTurn()) {
-          try {
-            semaphore.wait();
-          } catch (InterruptedException e) {
-            throw new RuntimeException(e);
-          }
-        }
-        try {
-          semaphore.acquire();
-        } catch (InterruptedException e) {
-          throw new RuntimeException(e);
-        }
-        appendedString.addToString("A");
-        semaphore.release();
-        semaphore.notifyAll();
+      while (true){
+        super.threadWork(allowedNumbers, appendedString, semaphore, workerType);
         if (appendedString.getSize() == 27) {
           break;
         }
@@ -47,9 +32,6 @@ public class WorkerA extends SuperClass implements Runnable {
           semaphore.wait();
         } catch (InterruptedException e) {
           throw new RuntimeException(e);
-        }
-        if (appendedString.getSize() == 27) {
-          break;
         }
       }
     }
@@ -64,23 +46,4 @@ public class WorkerA extends SuperClass implements Runnable {
     }
   }
 
-
-  public ArrayList<Integer> getAllowedNumbers() {
-    return allowedNumbers;
-  }
-
-  private void isItMyTurnTest(Semaphore semaphore) throws InterruptedException {
-    if (!allowedNumbers.contains(appendedString.getCurrentStringSize())) {
-      semaphore.wait();
-      //semaphore.notifyAll();
-      isItMyTurnTest(semaphore);
-    }
-  }
-
-  private boolean isItMyTurn() {
-    if (allowedNumbers.contains(appendedString.getSize())) {
-      return true;
-    }
-    return false;
-  }
 }

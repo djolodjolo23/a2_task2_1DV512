@@ -8,6 +8,8 @@ public class WorkerB extends SuperClass implements Runnable{
   ArrayList<Integer> allowedNumbers;
   private AppendedString appendedString;
 
+  private final String workerType = "B";
+
   public WorkerB(Semaphore semaphore, AppendedString appendedString) {
     this.appendedString = appendedString;
     allowedNumbers = new ArrayList<>();
@@ -18,25 +20,8 @@ public class WorkerB extends SuperClass implements Runnable{
   @Override
   public void run() {
     synchronized (semaphore) {
-      while (appendedString.getSize() < 30) {
-        if (appendedString.getSize() == 26) {
-          break;
-        }
-        while (!isItMyTurn()) {
-          try {
-            semaphore.wait();
-          } catch (InterruptedException e) {
-            throw new RuntimeException(e);
-          }
-        }
-        try {
-          semaphore.acquire();
-        } catch (InterruptedException e) {
-          throw new RuntimeException(e);
-        }
-        appendedString.addToString("B");
-        semaphore.release();
-        semaphore.notifyAll();
+      while (true) {
+        super.threadWork(allowedNumbers, appendedString, semaphore, workerType);
         if (appendedString.getSize() == 26) {
           break;
         }
@@ -44,9 +29,6 @@ public class WorkerB extends SuperClass implements Runnable{
           semaphore.wait();
         } catch (InterruptedException e) {
           throw new RuntimeException(e);
-        }
-        if (appendedString.getSize() == 26) {
-          break;
         }
       }
     }
@@ -60,19 +42,6 @@ public class WorkerB extends SuperClass implements Runnable{
     }
   }
 
-  public ArrayList<Integer> getAllowedNumbers() {
-    return allowedNumbers;
-  }
 
-  private void isItMyTurnTest(Semaphore semaphore) throws InterruptedException {
-    if (!allowedNumbers.contains(appendedString.getCurrentStringSize())) {
-      semaphore.wait();
-      //semaphore.notifyAll();
-      isItMyTurnTest(semaphore);
-    }
-  }
 
-  private boolean isItMyTurn() {
-    return allowedNumbers.contains(appendedString.getCurrentStringSize());
-  }
 }
