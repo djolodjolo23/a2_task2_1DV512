@@ -5,8 +5,10 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="77f2aaba-ffa9-4a93-89cb-3075407ec625" name="Changes" comment="Threads working fine, correct output is printed out.">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/AppendedString.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/AppendedString.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/SuperClass.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/SuperClass.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Counter.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Main.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/WorkerA.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/WorkerA.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/WorkerB.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/WorkerB.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/WorkerC.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/WorkerC.java" afterDir="false" />
@@ -78,7 +80,9 @@
       <option name="presentableId" value="Default" />
       <updated>1671021902498</updated>
       <workItem from="1671021903912" duration="13217000" />
-      <workItem from="1671094637715" duration="9998000" />
+      <workItem from="1671094637715" duration="10832000" />
+      <workItem from="1671118936792" duration="1948000" />
+      <workItem from="1671179686347" duration="1401000" />
     </task>
     <task id="LOCAL-00001" summary="Added an array list with allowed string length.">
       <created>1671026022712</created>
@@ -108,7 +112,14 @@
       <option name="project" value="LOCAL" />
       <updated>1671104797283</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="Threads working fine, correct output is printed out.">
+      <created>1671106052847</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1671106052847</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">

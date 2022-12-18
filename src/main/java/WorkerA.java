@@ -9,8 +9,6 @@ public class WorkerA extends SuperClass implements Runnable {
 
   private AppendedString appendedString;
 
-  private final String workerType = "A";
-
 
   public WorkerA(Semaphore semaphore, AppendedString appendedString) {
     this.appendedString = appendedString;
@@ -24,6 +22,7 @@ public class WorkerA extends SuperClass implements Runnable {
     synchronized (semaphore) {
       semaphore.release();
       while (true){
+        String workerType = "A";
         super.threadWork(allowedNumbers, appendedString, semaphore, workerType);
         if (appendedString.getSize() == 27) {
           break;

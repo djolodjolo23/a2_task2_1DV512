@@ -1,13 +1,15 @@
+import java.util.concurrent.atomic.AtomicInteger;
 
 public class AppendedString {
 
-  public volatile String finalString = "";
+  public String finalString = "";
 
-  public volatile int size = 0;
+  public AtomicInteger size = new AtomicInteger(0);
+
 
   public void addToString(String letter) {
     finalString += letter;
-    size++;
+    size.incrementAndGet();
   }
 
   public String getFinalString() {
@@ -15,12 +17,6 @@ public class AppendedString {
   }
 
   public int getSize() {
-    return size;
+    return size.get();
   }
-
-
-  public int getCurrentStringSize() {
-    return finalString.length();
-  }
-
 }
