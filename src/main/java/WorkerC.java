@@ -1,7 +1,7 @@
 import java.util.ArrayList;
 import java.util.concurrent.Semaphore;
 
-public class WorkerC extends SuperClass implements Runnable{
+public class WorkerC extends SuperWorker implements Runnable{
 
   final Semaphore semaphore;
 

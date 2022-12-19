@@ -1,7 +1,7 @@
 import java.util.List;
 import java.util.concurrent.Semaphore;
 
-public class SuperClass {
+public class SuperWorker {
 
   public boolean isItMyTurn(List<Integer> nums, AppendedString appendedString) {
     return !nums.contains(appendedString.getSize());

@@ -6,13 +6,6 @@
   <component name="ChangeListManager">
     <list default="true" id="77f2aaba-ffa9-4a93-89cb-3075407ec625" name="Changes" comment="Threads working fine, correct output is printed out.">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/AppendedString.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/AppendedString.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Counter.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/WorkerA.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/WorkerA.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/WorkerB.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/WorkerB.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/WorkerC.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/WorkerC.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/WorkerD.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/WorkerD.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -45,18 +38,19 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;project.structure.last.edited&quot;: &quot;Modules&quot;,
-    &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
-    &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "WebServerToolWindowFactoryState": "false",
+    "last_opened_file_path": "C:/Users/dimit/OneDrive/Documents/lnu courses/1DV512/a2_task2_1DV512",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "project.structure.last.edited": "Modules",
+    "project.structure.proportion": "0.15",
+    "project.structure.side.proportion": "0.2"
   }
-}</component>
+}]]></component>
   <component name="RunManager">
     <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="Main" />
@@ -83,6 +77,10 @@
       <workItem from="1671094637715" duration="10832000" />
       <workItem from="1671118936792" duration="1948000" />
       <workItem from="1671179686347" duration="1401000" />
+      <workItem from="1671375559728" duration="1827000" />
+      <workItem from="1671438837106" duration="1626000" />
+      <workItem from="1671441290742" duration="212000" />
+      <workItem from="1671447023790" duration="6000" />
     </task>
     <task id="LOCAL-00001" summary="Added an array list with allowed string length.">
       <created>1671026022712</created>
@@ -119,7 +117,14 @@
       <option name="project" value="LOCAL" />
       <updated>1671106052847</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="Threads working fine, correct output is printed out.">
+      <created>1671375570472</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1671375570472</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
