@@ -7,11 +7,11 @@ public class WorkerA extends SuperWorker implements Runnable {
 
   ArrayList<Integer> allowedNumbers;
 
-  private AppendedString appendedString;
+  private SizeCounter sizeCounter;
 
 
-  public WorkerA(Semaphore semaphore, AppendedString appendedString) {
-    this.appendedString = appendedString;
+  public WorkerA(Semaphore semaphore, SizeCounter sizeCounter) {
+    this.sizeCounter = sizeCounter;
     allowedNumbers = new ArrayList<>();
     this.semaphore = semaphore;
     addToAllowedNumbers();
@@ -23,8 +23,8 @@ public class WorkerA extends SuperWorker implements Runnable {
       semaphore.release();
       while (true){
         String workerType = "A";
-        super.threadWork(allowedNumbers, appendedString, semaphore, workerType);
-        if (appendedString.getSize() == 27) {
+        super.threadWork(allowedNumbers, sizeCounter, semaphore, workerType);
+        if (sizeCounter.getSize() == 27) {
           break;
         }
         try {

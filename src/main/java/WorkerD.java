@@ -7,10 +7,10 @@ public class WorkerD extends SuperWorker implements Runnable {
 
   ArrayList<Integer> allowedNumbers;
 
-  private AppendedString appendedString;
+  private SizeCounter sizeCounter;
 
-  public WorkerD(Semaphore semaphore, AppendedString appendedString) {
-    this.appendedString = appendedString;
+  public WorkerD(Semaphore semaphore, SizeCounter sizeCounter) {
+    this.sizeCounter = sizeCounter;
     allowedNumbers = new ArrayList<>();
     this.semaphore = semaphore;
     addToAllowedNumbers();
@@ -21,8 +21,8 @@ public class WorkerD extends SuperWorker implements Runnable {
     synchronized (semaphore) {
       while (true) {
         String workerType = "D";
-        super.threadWork(allowedNumbers, appendedString, semaphore, workerType);
-        if (appendedString.getSize() == 29) {
+        super.threadWork(allowedNumbers, sizeCounter, semaphore, workerType);
+        if (sizeCounter.getSize() == 29) {
           break;
         }
         try {

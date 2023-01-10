@@ -4,7 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="77f2aaba-ffa9-4a93-89cb-3075407ec625" name="Changes" comment="Threads working fine, correct output is printed out.">
+    <list default="true" id="77f2aaba-ffa9-4a93-89cb-3075407ec625" name="Changes" comment="Super class renamed into Super Worker.">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -41,7 +41,7 @@
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
     "WebServerToolWindowFactoryState": "false",
-    "last_opened_file_path": "C:/Users/dimit/OneDrive/Documents/lnu courses/1DV512/a2_task2_1DV512",
+    "last_opened_file_path": "C:/Users/dimit/OneDrive/Documents/lnu courses/1DV512/ahmad/ahmad_a1",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
@@ -81,6 +81,11 @@
       <workItem from="1671438837106" duration="1626000" />
       <workItem from="1671441290742" duration="212000" />
       <workItem from="1671447023790" duration="6000" />
+      <workItem from="1671447188683" duration="60000" />
+      <workItem from="1671455107097" duration="622000" />
+      <workItem from="1671553097348" duration="763000" />
+      <workItem from="1671717940817" duration="616000" />
+      <workItem from="1671808796327" duration="46000" />
     </task>
     <task id="LOCAL-00001" summary="Added an array list with allowed string length.">
       <created>1671026022712</created>
@@ -124,7 +129,14 @@
       <option name="project" value="LOCAL" />
       <updated>1671375570472</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL-00007" summary="Super class renamed into Super Worker.">
+      <created>1671447243681</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1671447243681</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -146,7 +158,8 @@
     <MESSAGE value="Added an array list with allowed string length for all workers." />
     <MESSAGE value="Made a lot of progress with threads, was able to print out the output twice, but then it crashes." />
     <MESSAGE value="Threads working fine, correct output is printed out." />
-    <option name="LAST_COMMIT_MESSAGE" value="Threads working fine, correct output is printed out." />
+    <MESSAGE value="Super class renamed into Super Worker." />
+    <option name="LAST_COMMIT_MESSAGE" value="Super class renamed into Super Worker." />
   </component>
   <component name="XDebuggerManager">
     <pin-to-top-manager>

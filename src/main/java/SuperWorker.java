@@ -3,12 +3,12 @@ import java.util.concurrent.Semaphore;
 
 public class SuperWorker {
 
-  public boolean isItMyTurn(List<Integer> nums, AppendedString appendedString) {
-    return !nums.contains(appendedString.getSize());
+  public boolean isItMyTurn(List<Integer> nums, SizeCounter sizeCounter) {
+    return !nums.contains(sizeCounter.getSize());
   }
 
-  public void threadWork(List<Integer> nums, AppendedString appendedString, Semaphore semaphore, String worker) {
-    while (isItMyTurn(nums, appendedString)) {
+  public void threadWork(List<Integer> nums, SizeCounter sizeCounter, Semaphore semaphore, String worker) {
+    while (isItMyTurn(nums, sizeCounter)) {
       try {
         semaphore.wait();
       } catch (InterruptedException e) {
@@ -20,11 +20,12 @@ public class SuperWorker {
     } catch (InterruptedException e) {
       throw new RuntimeException(e);
     }
+    sizeCounter.increaseSize();
     switch (worker) {
-      case "A" -> appendedString.addToString("A");
-      case "B" -> appendedString.addToString("B");
-      case "C" -> appendedString.addToString("C");
-      case "D" -> appendedString.addToString("D");
+      case "A" -> System.out.print("A");
+      case "B" -> System.out.print("B");
+      case "C" -> System.out.print("C");
+      case "D" -> System.out.print("D");
     }
     semaphore.release();
     semaphore.notifyAll();
